@@ -1,33 +1,25 @@
 package main;
 
-import java.sql.SQLException;
+//import java.sql.SQLException;
+import java.io.IOException;
+//import controller.ControllerFacade;
+//import model.ModelFacade;
+import view.ViewLorann;
 
-import controller.ControllerFacade;
-import model.ModelFacade;
-import view.ViewFacade;
 
-/**
- * <h1>The Class Main.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
 public abstract class Main {
-
-    /**
-     * The main method.
-     *
-     * @param args
-     *            the arguments
-     */
-    public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+    public static void main(final String[] args) throws IOException, InterruptedException {
+     
+    	/*  final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 
         try {
             controller.start();
         } catch (final SQLException exception) {
             exception.printStackTrace();
-        }
+        }*/
+    	        final ViewLorann view = new ViewLorann();
+    	        view.move();    
+    	    }
+
     }
 
-}
