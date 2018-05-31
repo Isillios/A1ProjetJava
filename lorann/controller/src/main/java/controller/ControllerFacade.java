@@ -1,46 +1,34 @@
 package controller;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+import fr.exia.insanevehicles.controller.IOrderPerformer;
+import fr.exia.insanevehicles.controller.UserOrder;
+import fr.exia.insanevehicles.model.IInsaneVehiclesModel;
+import fr.exia.insanevehicles.view.IInsaneVehiclesView;
 import model.Example;
 import model.IModel;
 import view.IView;
 
-/**
- * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
+
 public class ControllerFacade implements IController {
 
-    /** The view. */
+	private static final int     speed = 300;
+	
     private final IView  view;
 
-    /** The model. */
     private final IModel model;
 
-    /**
-     * Instantiates a new controller facade.
-     *
-     * @param view
-     *            the view
-     * @param model
-     *            the model
-     */
+    private UserOrder stackOrder;
+    
     public ControllerFacade(final IView view, final IModel model) {
         super();
         this.view = view;
         this.model = model;
     }
 
-    /**
-     * Start.
-     *
-     * @throws SQLException
-     *             the SQL exception
-     */
     public void start() throws SQLException {
         this.getView().displayMessage(this.getModel().getExampleById(1).toString());
 
@@ -55,21 +43,71 @@ public class ControllerFacade implements IController {
         this.getView().displayMessage(message.toString());
     }
 
-    /**
-     * Gets the view.
-     *
-     * @return the view
-     */
-    public IView getView() {
+    public final void play() throws InterruptedException {
+        while (this.getModel().getMyVehicle().isAlive()) {
+            Thread.sleep(speed);
+            switch (this.getStackOrder()) {
+                case RIGHT:
+                    this.getModel().getMyVehicle().moveRight();
+                    break;
+                case LEFT:
+                    this.getModel().getMyVehicle().moveLeft();
+                    break;
+                case UP:
+                    this.getModel().getMyVehicle().moveUp();
+                    break;
+                case DOWN:
+                    this.getModel().getMyVehicle().moveDown();
+                    break;
+                case SHOOT:
+                    this.getModel().getMyVehicle().shoot();
+                    break;
+                case NOP:
+                default:
+                    this.getModel().getMyVehicle().doNothing();
+                    break;
+            }
+            this.clearStackOrder();
+            if (this.getModel().getMyVehicle().isAlive()) {
+                this.getModel().getMyVehicle().moveDown();
+            }
+        
+    }
+    
+    public final void orderPerform(final UserOrder userOrder) throws IOException {
+        this.setStackOrder(userOrder);
+    }
+
+    private IView getView() {
         return this.view;
     }
 
-    /**
-     * Gets the model.
-     *
-     * @return the model
-     */
-    public IModel getModel() {
+    private void setView(final IView view) {
+        this.view = view;
+    }
+
+    private IModel getModel() {
         return this.model;
     }
+
+    private void setModel(final IModel model) {
+        this.model = model;
+    }
+
+    private UserOrder getStackOrder() {
+        return this.stackOrder;
+    }
+
+    private void setStackOrder(final UserOrder stackOrder) {
+        this.stackOrder = stackOrder;
+    }
+
+    private void clearStackOrder() {
+        this.stackOrder = UserOrder.NOP;
+    }
+
+    public controller.IOrderPerformer getOrderPeformer() {
+        return this;
+    }
+
 }
