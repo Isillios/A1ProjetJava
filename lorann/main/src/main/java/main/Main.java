@@ -18,8 +18,8 @@ public abstract class Main {
             exception.printStackTrace();
         }*/
     		
-    	       final ViewLorann view = new ViewLorann();
-    	       view.move();    
+    	      // final ViewLorann view = new ViewLorann();
+    	       //view.move();    
     	    }
 
     }
