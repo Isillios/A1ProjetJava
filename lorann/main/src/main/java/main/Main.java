@@ -17,8 +17,9 @@ public abstract class Main {
         } catch (final SQLException exception) {
             exception.printStackTrace();
         }*/
-    	        final ViewLorann view = new ViewLorann();
-    	        view.move();    
+    		
+    	       final ViewLorann view = new ViewLorann();
+    	       view.move();    
     	    }
 
     }
