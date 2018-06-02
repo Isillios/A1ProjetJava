@@ -2,9 +2,11 @@ package main;
 
 //import java.sql.SQLException;
 import java.io.IOException;
+
+import view.Frame;
 //import controller.ControllerFacade;
 //import model.ModelFacade;
-import view.ViewLorann;
+
 
 
 public abstract class Main {
@@ -19,7 +21,8 @@ public abstract class Main {
         }*/
     		
     	      // final ViewLorann view = new ViewLorann();
-    	       //view.move();    
+    	       //view.move();  
+    	Frame fenetre = new Frame();
     	    }
 
     }
