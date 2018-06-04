@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\contract\src\main\java\model\IModel.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\contract\src\main\java\model\package-info.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\contract\src\main\java\view\IView.java
@@ -5,3 +6,12 @@ C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\contract\src\main\java\controller
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\contract\src\main\java\model\Example.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\contract\src\main\java\view\package-info.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\contract\src\main\java\controller\IController.java
+=======
+D:\User\gitJava\A1ProjetJava\lorann\contract\src\main\java\view\package-info.java
+D:\User\gitJava\A1ProjetJava\lorann\contract\src\main\java\view\IView.java
+D:\User\gitJava\A1ProjetJava\lorann\contract\src\main\java\controller\IController.java
+D:\User\gitJava\A1ProjetJava\lorann\contract\src\main\java\model\package-info.java
+D:\User\gitJava\A1ProjetJava\lorann\contract\src\main\java\controller\package-info.java
+D:\User\gitJava\A1ProjetJava\lorann\contract\src\main\java\model\Example.java
+D:\User\gitJava\A1ProjetJava\lorann\contract\src\main\java\model\IModel.java
+>>>>>>> branch 'view' of https://github.com/Isillios/A1ProjetJava.git

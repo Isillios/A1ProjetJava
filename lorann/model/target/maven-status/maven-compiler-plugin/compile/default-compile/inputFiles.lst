@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\model\src\main\java\model\dao\LorannBDDConnector.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\model\src\main\java\model\ModelFacade.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\model\src\main\java\model\dao\AbstractDAO.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\model\src\main\java\model\package-info.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\model\src\main\java\model\dao\package-info.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\model\src\main\java\model\dao\ExampleDAO.java
+=======
+D:\User\gitJava\A1ProjetJava\lorann\model\src\main\java\model\dao\LorannBDDConnector.java
+D:\User\gitJava\A1ProjetJava\lorann\model\src\main\java\model\package-info.java
+D:\User\gitJava\A1ProjetJava\lorann\model\src\main\java\model\dao\AbstractDAO.java
+D:\User\gitJava\A1ProjetJava\lorann\model\src\main\java\model\dao\ExampleDAO.java
+D:\User\gitJava\A1ProjetJava\lorann\model\src\main\java\model\dao\package-info.java
+D:\User\gitJava\A1ProjetJava\lorann\model\src\main\java\model\ModelFacade.java
+>>>>>>> branch 'view' of https://github.com/Isillios/A1ProjetJava.git

@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\showboard\src\main\java\showboard\ISquare.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\showboard\src\main\java\showboard\BoardFrame.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\showboard\src\main\java\showboard\IBoard.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\showboard\src\main\java\showboard\BoardPanel.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\showboard\src\main\java\showboard\package-info.java
 C:\Users\Jean-Baptiste\git\A1ProjetJava\lorann\showboard\src\main\java\showboard\IPawn.java
+=======
+D:\User\gitJava\A1ProjetJava\lorann\showboard\src\main\java\showboard\BoardFrame.java
+D:\User\gitJava\A1ProjetJava\lorann\showboard\src\main\java\showboard\IPawn.java
+D:\User\gitJava\A1ProjetJava\lorann\showboard\src\main\java\showboard\ISquare.java
+D:\User\gitJava\A1ProjetJava\lorann\showboard\src\main\java\showboard\BoardPanel.java
+D:\User\gitJava\A1ProjetJava\lorann\showboard\src\main\java\showboard\IBoard.java
+D:\User\gitJava\A1ProjetJava\lorann\showboard\src\main\java\showboard\package-info.java
+>>>>>>> branch 'view' of https://github.com/Isillios/A1ProjetJava.git

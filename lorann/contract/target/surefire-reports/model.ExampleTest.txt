@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: model.ExampleTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec
+=======
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec
+>>>>>>> branch 'view' of https://github.com/Isillios/A1ProjetJava.git
