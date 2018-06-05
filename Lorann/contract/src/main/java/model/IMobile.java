@@ -9,4 +9,6 @@ public interface IMobile extends IElement {
 	void stop();
 	void setMana(boolean b);
 	boolean getMana();
+	Boolean getWin();
+	void setWin();
 }

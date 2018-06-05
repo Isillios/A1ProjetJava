@@ -5,11 +5,9 @@ import controller.IOrderPerformer;
 import controller.Order;
 import model.ILorannModel;
 import model.IMobile;
-
-
+import model.Permeability;
 import model.Score;
 //import model.element.mobile.*;
- 
 import view.IViewFacade;
 
 
@@ -22,18 +20,8 @@ import view.IViewFacade;
     private Order stackOrder;
     boolean end;
     static boolean oui;
-    
-	public static Boolean getWin() {
-		return oui;
-	}
+    private IMobile TheMobile;
 	
-	public void setWin(Boolean oui) {
-		oui = oui;
-	}
-	protected void win() {
-		setWin(true);
-		
-	}
     
     public Controller(final IViewFacade viewFacade, final ILorannModel model) {
     	this.setViewFacade(viewFacade);
@@ -59,7 +47,7 @@ import view.IViewFacade;
 	}
 
 	public void setStockOrder(Order stackOrder) {
-		this.stackOrder = stackOrder;
+		this.stackOrder = stackOrder; 
 	}
 	
 	public Order getStockOrder() {
@@ -80,10 +68,12 @@ import view.IViewFacade;
 		this.setStockOrder(userOrder);
 	}
 	
+	
 	@Override
 	public void start() throws InterruptedException {
-		while (getModel().getMyPlayer().isAlive() && (getWin() == false)) {
+		while (getModel().getMyPlayer().isAlive()) {
             Thread.sleep(speed);
+            //System.out.println(TheMobile.getWin());
             switch (this.getStockOrder()) {
             case UP:
             	getModel().getMyPlayer().move(1); 
@@ -116,11 +106,13 @@ import view.IViewFacade;
             getModel().getDemon4().move(1);
             viewFacade.refresh();
                  }
-		if (getWin() == true) {
-			viewFacade.displayMessage("You won with a score of  " + Score.getScore());
-		}
-		else {viewFacade.displayMessage("Game Over ! Your score is " + Score.getScore());}
-    }	
+		/*if (TheMobile.getWin() == true) {
+			*viewFacade.displayMessage("You won with a score of  " + Score.getScore());
+		}*/
+		{viewFacade.displayMessage("Game Over ! Your score is " + Score.getScore());}
+    }
+
+		
 	}
 
 
