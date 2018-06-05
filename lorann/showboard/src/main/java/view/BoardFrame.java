@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import java.util.Observer;
 import javax.swing.JFrame;
 
+//giveup
 
 public class BoardFrame extends JFrame implements IBoard, KeyListener {
 
