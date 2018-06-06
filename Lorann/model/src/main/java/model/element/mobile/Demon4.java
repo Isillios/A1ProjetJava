@@ -1,5 +1,7 @@
 package model.element.mobile;
 
+import java.util.Random;
+
 import model.IMap;
 import model.IMobile;
 import model.Permeability;
@@ -42,54 +44,45 @@ public class Demon4 extends Demon {
 	 * AI for demon4 : vertical movement
 	 */
 	@Override
-	public void move(int move) {
+public void move(int move) {
+		
 		if(super.getAlive() == true) {
-			Boolean collide = false ;
-	
-		if(bounce == false) {
-			/**
-			 * Check up position when there is no collision
-			 */
-			if(super.checkNextPosition(this.getPosition()+20,this.getObjet()) == true) {	
-				bounce = false;
-				collide = false;
-			} 
-			/**
-			 * Check down position  there is no collision
-			 */
-		else if(super.checkNextPosition(this.getPosition()-20,this.getObjet())== true) {	
-			bounce = true;	
-			collide = true;
-		}
-		}
-		else {
-			/**
-			 * Check down position  there is collision
-			 */
-			if(super.checkNextPosition(this.getPosition()-20,this.getObjet()) == true) {
-				bounce = true;
-				collide = true;
-			} 
-			/**
-			 * Check up position  there is collision
-			 */
-			else if(super.checkNextPosition(this.getPosition()+20,this.getObjet())== true) {
-				bounce = false;
-				collide = false;
-			}
-		}
-		/**
-		 * Demon move down there isn't collision
-		 */
-		if (collide == false) {
 			
-			super.moveDown(this.getPosition(),this.getObjet());
-		}
+		Random random = new Random();
+		
 		/**
-		 * Demon move up there isn't collision
+		 * random(((max-min)+1)-min)
 		 */
-		else 
-			super.moveUp(this.getPosition(),this.getObjet());
+		int IADirection = random.nextInt((4 - 1) + 1) + 1 ;
+			
+		
+			switch(IADirection)
+			{
+			/**
+			 * if the random is 1 : the demon goes up
+			 */
+			case 1 :
+				super.moveUp(this.getPosition(),this.getObjet());
+				break;
+			/**
+			 * if the random is 1 : the demon goes down
+			*/
+			case 2 :
+				super.moveDown(this.getPosition(),this.getObjet());
+				break;
+			/**
+			* if the random is 3 : the demon goes left
+			*/
+			case 3 :
+				super.moveLeft(this.getPosition(),this.getObjet());
+				break;
+			/**
+			 * if the random is 4 : the demon goes right
+			*/
+			case 4 :
+				super.moveRight(this.getPosition(),this.getObjet());
+				break;
+			}
 		}
 	}
 	@Override

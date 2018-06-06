@@ -1,7 +1,7 @@
 package model;
 
 import java.sql.SQLException;
-import java.util.Observable;
+//import java.util.Observable;
 
 import model.ILorannModel;
 import model.dao.MapDAO;

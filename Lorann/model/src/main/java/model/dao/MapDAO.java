@@ -26,7 +26,7 @@ public  class MapDAO extends AbstractDAO {
 	/**
 	 * Call the procedure
 	 */
-	private static String sqlMapById = "{call getmap1(?)}";
+	private static String sqlMapById = "{call getmap5(?)}";
 	/**
 	 * The hero's position
 	 */

@@ -19,5 +19,5 @@ public interface IOrderPerformer {
 	 * @param userOrder
 	 * @throws IOException
 	 */
-	 void orderPerform(Order userOrder) throws IOException; 
+	void orderPerform(Order userOrder) throws IOException; 
 }

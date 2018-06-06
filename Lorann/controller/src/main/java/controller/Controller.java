@@ -47,12 +47,10 @@ import view.IViewFacade;
     /**
      * The attribute for the method win
      */
-    static boolean yes;
+    //static boolean yes;
     
-    /**
-     * The mobile
-     */
-    private IMobile TheMobile;
+    
+    
 	
     /**
      * 
@@ -249,17 +247,6 @@ import view.IViewFacade;
 			}
     }
 
-	/**
-	 * 
-	 * @return TheMobile
-	 */
-	public IMobile getTheMobile() {
-		return TheMobile;
-	}
-
-	public void setTheMobile(IMobile theMobile) {
-		TheMobile = theMobile;
-	}
 
 		
 	}

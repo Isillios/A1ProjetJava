@@ -256,6 +256,7 @@ public abstract class Mobile extends Element implements IMobile {
 			break; 
 		case 'g' :
 			possible = false;
+			death();
 			break;	
 		case 'M' :
 				if (objet == "Player") {

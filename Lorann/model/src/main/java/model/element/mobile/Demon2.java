@@ -1,6 +1,6 @@
 package model.element.mobile;
 
-import java.util.Random;
+//import java.util.Random;
 
 import model.IMap;
 import model.IMobile;
@@ -18,7 +18,8 @@ public   class Demon2 extends Demon {
 	public Boolean setAlive() {
 		return isAlive();
 	}
-
+	boolean bounce = false;
+	
 	@Override
 	public void stop() {	
 	}
@@ -38,41 +39,54 @@ public   class Demon2 extends Demon {
 	 */
 	public void move(int move) {
 		if(super.getAlive() == true) {
-			Random random = new Random();
-			
-			/**
-			 * random(((max-min)+1)-min)
-			 */
-			int IADirection = random.nextInt((4 - 1) + 1) + 1 ;
+			Boolean collide = false ;
+	
 		
-			switch(IADirection)
-			{
-			case 1 :
-				/**
-				 * if the random is 1 : the demon goes upLeft
-				 */
-				super.moveUpLeft(this.getPosition(),this.getObjet());
-				break;
-			case 2 :
-				/**
-				 * if the random is 2 : the demon goes upRight
-				 */
-				super.moveUpRight(this.getPosition(),this.getObjet());
-				break;
-			case 3 :
-				/**
-				 * if the random is 3 : the demon goes downRight
-				 */
-				super.moveDownRight(this.getPosition(),this.getObjet());
-				break;
-			case 4 :
-				/**
-				 * if the random is 4 : the demon goes downLeft
-				 */
-				super.moveDownLeft(this.getPosition(),this.getObjet());
-				break;
+		if(bounce  == false) {
+			/**
+			 * Check up position when there is no collision
+			 */
+			if(super.checkNextPosition(this.getPosition()+20,this.getObjet()) == true) {	
+				bounce = false;
+				collide = false;
+			} 
+			/**
+			 * Check down position  there is no collision
+			 */
+		else if(super.checkNextPosition(this.getPosition()-20,this.getObjet())== true) {	
+			bounce = true;	
+			collide = true;
+		}
+		}
+		else {
+			/**
+			 * Check down position  there is collision
+			 */
+			if(super.checkNextPosition(this.getPosition()-20,this.getObjet()) == true) {
+				bounce = true;
+				collide = true;
+			} 
+			/**
+			 * Check up position  there is collision
+			 */
+			else if(super.checkNextPosition(this.getPosition()+20,this.getObjet())== true) {
+				bounce = false;
+				collide = false;
 			}
-		}	
+		}
+		/**
+		 * Demon move down there isn't collision
+		 */
+		if (collide == false) {
+			
+			super.moveDown(this.getPosition(),this.getObjet());
+		}
+		/**
+		 * Demon move up there isn't collision
+		 */
+		else 
+			super.moveUp(this.getPosition(),this.getObjet());
+		}
 	}
 
 	@Override
