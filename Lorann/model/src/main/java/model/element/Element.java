@@ -32,4 +32,9 @@ public abstract class Element implements IElement {
 		this.permeability = permeability;
 	}
 
+	public void setWin() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -15,4 +15,6 @@ public interface IElement {
 	 * @return Permeability
 	 */
 	Permeability getPermeability();
+
+	void setWin();
 }

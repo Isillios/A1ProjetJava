@@ -155,7 +155,7 @@ import view.IViewFacade;
 		/**
 		 * While the player is alive
 		 */
-		while (getModel().getMyPlayer().isAlive()) {
+		while (getModel().getMyPlayer().isAlive() && getModel().getMyPlayer().getWin() == false) {
             Thread.sleep(speed);
             //System.out.println(TheMobile.getWin());
            /**
@@ -190,6 +190,24 @@ import view.IViewFacade;
                    getModel().getMyPlayer().move(3);
                    viewFacade.refresh();
                     break;
+                    
+            case UPRIGHT :
+            	getModel().getMyPlayer().move(6);
+            	viewFacade.refresh();
+                    break;
+            case UPLEFT :
+            	getModel().getMyPlayer().move(7);
+                viewFacade.refresh();
+            	break;
+            case DOWNRIGHT :
+            	getModel().getMyPlayer().move(8);
+                viewFacade.refresh();
+            	break;
+            case DOWNLEFT :
+            	getModel().getMyPlayer().move(9);
+                viewFacade.refresh();
+            	break;
+            	
             case SHOOT:
             	/**
             	 * Launch shoot in the model
@@ -217,15 +235,18 @@ import view.IViewFacade;
             getModel().getDemon4().move(0);
             viewFacade.refresh();
                  }
-		/*if (TheMobile.getWin() == true) {
-			*viewFacade.displayMessage("You won with a score of  " + Score.getScore());
-		}*/
+		
 		
 		/**
 		 * Show a message gameover with your score when the player isn't alive
 		 */
 		{
-			viewFacade.displayMessage("Game Over ! Your score is " + Score.getScore());}
+			if (getModel().getMyPlayer().getWin() == true) {
+				viewFacade.displayMessage("GG ! Your score is " + Score.getScore());
+			}
+			else {
+				viewFacade.displayMessage("Game Over ! Your score is " + Score.getScore());}
+			}
     }
 
 	/**

@@ -106,4 +106,9 @@ public class Demon4 extends Demon {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public Boolean getWin() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }

@@ -11,5 +11,5 @@ package controller;
  */
 
 public enum Order {
-    RIGHT, LEFT, UP, DOWN, STOP, SHOOT
+    RIGHT, LEFT, UP, DOWN, STOP, UPRIGHT, UPLEFT, DOWNRIGHT, DOWNLEFT, SHOOT
 }

@@ -107,6 +107,23 @@ public class MyPlayer extends Mobile implements IMobile {
 		case 5:
 			fireball();
 			break;
+		case 6:
+			setLastposition(this.getPosition());
+			super.moveUpRight(this.getPosition(),this.getObjet());
+			break;
+		case 7:
+			setLastposition(this.getPosition());
+			super.moveUpLeft(this.getPosition(),this.getObjet());
+			break;
+		case 8:
+			setLastposition(this.getPosition());
+			super.moveDownRight(this.getPosition(),this.getObjet());
+			break;
+		case 9:
+			setLastposition(this.getPosition());
+			super.moveDownLeft(this.getPosition(),this.getObjet());
+			break;
+			
 		}
 	}
 	
@@ -137,9 +154,14 @@ public class MyPlayer extends Mobile implements IMobile {
 	public void stop() {	
 	}
 
-	@Override
 	public void setWin() {
-		// TODO Auto-generated method stub
+		this.win = true;
 		
+	}
+
+	@Override
+	public Boolean getWin() {
+		// TODO Auto-generated method stub
+		return win;
 	}	
 }

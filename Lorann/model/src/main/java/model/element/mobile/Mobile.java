@@ -22,7 +22,7 @@ public abstract class Mobile extends Element implements IMobile {
 	private Boolean alive = true;
 	//private  IBoard  board;
 	private String Objet;
-	private static Boolean win = false;
+	protected Boolean win = false;
 	
 	/**
 	 * 
@@ -213,25 +213,27 @@ public abstract class Mobile extends Element implements IMobile {
 	/**
 	 * 
 	 */
-	public Boolean getWin() {
+	/*public Boolean getWin() {
+		System.out.println("victoire");
 		return win;
-	}
+	}*/
 	
 	/**
 	 * 
 	 * @param win
 	 */
-	public void setWin(Boolean win) {
+	/*public void setWin(Boolean win) {
 		
 		win = win;
-	}
+	}*/
 	
 	/**
 	 * 
 	 */
-	protected void win() {
+	/*protected void win() {
 		setWin(true);
-	}
+		getWin();
+	}*/
 	
 	/**
 	 * Check the next position and do an action when the next position is a specifically object
@@ -307,8 +309,7 @@ public abstract class Mobile extends Element implements IMobile {
 		case 'G' :
 			if(objet == "Player") {
 				possible = false;
-				System.out.println("oui");
-				win();
+				setWin();
 			} 
 			else {
 				possible = false;
@@ -362,5 +363,10 @@ public abstract class Mobile extends Element implements IMobile {
 	
 	public void setObjet(String objet) {
 		Objet = objet;
+	}
+
+	public void setWin() {
+		// TODO Auto-generated method stub
+		
 	}	
 }

@@ -65,21 +65,33 @@ public  class View implements KeyListener , IViewFacade{
 		  Order order = null;
 	        switch (key)
 	        {
-	            case KeyEvent.VK_UP:
+	            case KeyEvent.VK_NUMPAD8:
 	                order = Order.UP;
 	                break;
-	            case KeyEvent.VK_LEFT:
+	            case KeyEvent.VK_NUMPAD4:
 	            	order = Order.LEFT;
 	                break;
-	            case KeyEvent.VK_RIGHT:
+	            case KeyEvent.VK_NUMPAD6:
 	            	order = Order.RIGHT;
 	                break;
-	            case KeyEvent.VK_DOWN:
+	            case KeyEvent.VK_NUMPAD2:
 	            	order = Order.DOWN;
 	                break;
 	            case KeyEvent.VK_SPACE:
 	            	order = Order.SHOOT;
 	                break;
+	            case KeyEvent.VK_NUMPAD9:
+	            	order = Order.UPRIGHT;
+	            	break;
+	            case KeyEvent.VK_NUMPAD7:
+	            	order = Order.UPLEFT;
+	            	break;
+	            case KeyEvent.VK_NUMPAD1:
+	            	order = Order.DOWNRIGHT;
+	            	break;
+	            case KeyEvent.VK_NUMPAD3:
+	            	order = Order.DOWNLEFT;
+	            	break;
 	            default:
 	                System.out.println("The key doesn't exist");
 	                order = Order.STOP;
