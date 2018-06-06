@@ -3,19 +3,39 @@ package view;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import controller.IOrderPerformer;
 import controller.Order;
-
 import model.IMap;
 
 
+/**
+ * <h1>The Class View.</h1>
+ * <p>This class View implements the keyListenner and the facade. 
+ * @author Team12
+ * @version final
+ * @see KeyListener
+ * @see IViewFacade
+ */
+
 public  class View implements KeyListener , IViewFacade{
 	
+	/**
+	 * The orderPerformer
+	 */
 	private IOrderPerformer orderPerformer;
+	
+	/**
+	 * The viewpanel
+	 */
 	public ViewPanel viewpanel;
+	
+	/**
+	 * Create the frame
+	 * @param map
+	 * @throws IOException
+	 */
 	public View(IMap map) throws IOException {
 		 
 		final JFrame frame = new javax.swing.JFrame("LorannGame");
@@ -36,6 +56,11 @@ public  class View implements KeyListener , IViewFacade{
 	        this.orderPerformer = orderPerformer;
 	    }
 	 
+	  /**
+	   * Stock the key input in an attribute
+	   * @param key
+	   * @return
+	   */
 	  public Order KeyInput(final int key) {
 		  Order order = null;
 	        switch (key)
@@ -65,6 +90,9 @@ public  class View implements KeyListener , IViewFacade{
 	  public void keyTyped(KeyEvent e) {
 	  }
 	  
+	  /**
+	   * When a key is pressed
+	   */
 	  public void keyPressed(final KeyEvent e) {
 	            try {
 	            	this.getOrderPerformer().orderPerform(KeyInput(e.getKeyCode()));
@@ -82,6 +110,9 @@ public  class View implements KeyListener , IViewFacade{
 		  JOptionPane.showMessageDialog(null, message);
 	  }
 
+	  /**
+	   * Repaint the frame
+	   */
 	  @Override
 	  public void refresh() {
 		  viewpanel.repaint();

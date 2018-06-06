@@ -4,10 +4,35 @@ import model.IMap;
 import model.Permeability;
 import model.element.mobile.MyPlayer;
 
+/**
+ * <h1>The Class Fireball.</h1>
+ * <p>This class is a generalized class for the fireball</p>
+ * @author Team12
+ * @version final
+ * @see AI
+ */
+
 public class Fireball extends AI {
+	/**
+	 * The map
+	 */
 	public IMap map;
+	/**
+	 * The direction
+	 */
 	int Direction;
+	/**
+	 * The hero
+	 */
 	private MyPlayer hero;
+	
+	/**
+	 * 
+	 * @param position
+	 * @param map
+	 * @param Direction
+	 * @param hero
+	 */
 	public Fireball(int position, IMap map, int Direction,MyPlayer hero) {
 		super(position,map,Permeability.PENETRABLE);
 		this.map = map;
@@ -17,6 +42,9 @@ public class Fireball extends AI {
 		map.setOnMap(position, 'f');
 	}
 	
+	/**
+	 * Take the parameter of the controller to set a move for the fireball
+	 */
 	public void move(int move) {
 		switch (Direction) {
 		case 1 :

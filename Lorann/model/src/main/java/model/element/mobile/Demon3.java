@@ -4,6 +4,13 @@ import model.IMap;
 import model.IMobile;
 import model.Permeability;
 
+/**
+ * <h1>The Class Demon1.</h1>
+ * <p>This class extends to Demon and implement the different methods. It has the similar methods to the others demons.</p>
+ * @author Team12
+ * @version final
+ */
+
 	public  class Demon3 extends Demon {
 		
 		@Override
@@ -20,6 +27,9 @@ import model.Permeability;
 		public void stop() {
 		}
 
+		/**
+		 * The bounce
+		 */
 		public boolean bounce = false;
 	
 	
@@ -28,34 +38,56 @@ import model.Permeability;
 			this.setPosition(position);
 			this.setObjet("Demon");
 		}
-	
+		/**
+		 * AI for demon3 : horizontal movement
+		 */
 		public void move(int move) {
 			if(super.getAlive() == true) {
 				Boolean collide = false ;
 	
 				if(bounce == false) {
+					/**
+					 * Check right position when there is no collision
+					 */
 					if(super.checkNextPosition(this.getPosition()+1,this.getObjet()) == true) {	
 						bounce = false;
 						collide = false;
 					} 	
+					
+					/**
+					 * Check left position  there is no collision
+					 */
 					else if(super.checkNextPosition(this.getPosition()-1,this.getObjet())== true) {			
 						bounce = true;				
 						collide = true;			
 					}		
 				}			
-				else {				
+				else {	
+					/**
+					 * Check left position  there is collision
+					 */
 					if(super.checkNextPosition(this.getPosition()-1,this.getObjet()) == true) {					
 						bounce = true;					
 						collide = true;				
-					} 				
+					} 		
+					/**
+					 * Check right position  there is collision
+					 */
 					else if(super.checkNextPosition(this.getPosition()+1,this.getObjet())== true) {					
 						bounce = false;				
 						collide = false;
 					}
 				}
+				
+				/**
+				 * Demon move right there isn't collision
+				 */
 				if (collide == false) {	
 					super.moveRight(this.getPosition(),this.getObjet());
 				}
+				/**
+				 * Demon move right there is collision
+				 */
 				else
 				{
 					super.moveLeft(this.getPosition(),this.getObjet());

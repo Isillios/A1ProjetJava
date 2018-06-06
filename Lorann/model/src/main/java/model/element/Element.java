@@ -1,5 +1,11 @@
 package model.element;
 
+/**
+ * <h1>The Class Element.</h1>
+ * 
+ * @author Team12
+ * @version final
+ */
 
 import model.*;
 public abstract class Element implements IElement {

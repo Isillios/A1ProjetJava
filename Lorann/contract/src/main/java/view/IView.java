@@ -11,6 +11,7 @@ public interface IView {
     /**
      * Display message.
      *
+     *
      * @param message
      *            the message
      */

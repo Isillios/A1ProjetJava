@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.Hashtable;
@@ -15,15 +16,47 @@ import model.ILorannModel;
 import model.IMap;
 import model.Score;
 
+
+/**
+ * <h1>The Class ViewPanel.</h1>
+ * <p>This class View create the panel with the dimensions. 
+ * @author Team12
+ * @version final
+ * @see JPanel
+ */
+
 public class ViewPanel extends JPanel  { 
 
-	
+	/*
+	 * The serialVersionUID
+	 */
 	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * The hashtable for the correspondences
+	 */
 	private Hashtable<Character, Image> tabmap = new Hashtable<Character, Image>();
+	
+	/**
+	 * The stop
+	 */
 	public boolean stop = false;
+	
+	/**
+	 * The map
+	 */
 	public IMap map;
+	
+	/**
+	 * The model
+	 */
 	public ILorannModel model;
 	  
+	/**
+	 * The panel
+	 * @param map
+	 * @throws IOException
+	 */
 	public ViewPanel(IMap map) throws IOException {
 		  this.map = map;	    
 		  setBackground(Color.BLACK);		    
@@ -31,6 +64,10 @@ public class ViewPanel extends JPanel  {
 		  loadImage();
 		  }
 
+	/**
+	 * The image loading 
+	 * @throws IOException
+	 */
 	 public void loadImage() throws IOException {
 		 
 		 	Image black = ImageIO.read(new File("sprite/black.png"));
@@ -92,6 +129,9 @@ public class ViewPanel extends JPanel  {
 	        this.tabmap.put('p', purse);
 	 }
 	  
+	 /**
+	  * setting of the dimension of the view
+	  */
 	public void paint (final Graphics g){	  
 		super.paint(g);       
 		int x = 0;

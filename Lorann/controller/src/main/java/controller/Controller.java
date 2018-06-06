@@ -5,93 +5,196 @@ import controller.IOrderPerformer;
 import controller.Order;
 import model.ILorannModel;
 import model.IMobile;
-import model.Permeability;
 import model.Score;
-//import model.element.mobile.*;
 import view.IViewFacade;
 
-
+/**
+ * <h1>The Class Controller .</h1>
+ * <p>
+ * This Class allows to make the link between the view and the model. 
+ * </p>
+ * @author Team12
+ * @version final
+ * @see IController
+ * @see IViewFacade
+ * @see ILorannModel
+ * @see Order
+ * @see IMobile
+ */
 
 	public class Controller implements IController , IOrderPerformer {
 
-    private IViewFacade  viewFacade;
+	/**
+	 * The view facade
+	*/
+    private IViewFacade viewFacade;
+    
+    /**
+     * The model
+     */
     private  ILorannModel model;
-    private static int speed = 200;
-    private Order stackOrder;
-    boolean end;
-    static boolean oui;
+    
+    /**
+     * The player's speed
+     */
+    private static int speed = 100;
+    
+    /**
+     * The stock of the order
+     */
+    private Order stockOrder;
+    
+    /**
+     * The attribute for the method win
+     */
+    static boolean yes;
+    
+    /**
+     * The mobile
+     */
     private IMobile TheMobile;
 	
-    
+    /**
+     * 
+     * @param viewFacade
+     * @param model
+     */
     public Controller(final IViewFacade viewFacade, final ILorannModel model) {
+    	/**
+    	 * Set the view facade
+    	 */
     	this.setViewFacade(viewFacade);
+    	/**
+    	 * Set the model
+    	 */
         this.setModel(model);
+        /**
+         * clear the stock of order
+         */
         this.clearStockOrder();
     }
     
+    /**
+     * 
+     * @param viewFacade
+     */
     private void setViewFacade(final IViewFacade viewFacade) {
         this.viewFacade = viewFacade;
     }
-    
+   
+    /**
+     * 
+     * @return viewFacade
+     */
     @SuppressWarnings("unused")
 	private  IViewFacade getViewFacade() {
     	return viewFacade;
     };
     
+    /**
+     * 
+     * @param model
+     */
 	private void setModel(ILorannModel model) {
 		this.model = model;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public ILorannModel getModel() {
 		return this.model;
 	}
 
-	public void setStockOrder(Order stackOrder) {
-		this.stackOrder = stackOrder; 
+	/**
+	 * To stock the order of the player
+	 * @param stockOrder
+	 */
+	public void setStockOrder(Order stockOrder) {
+		this.stockOrder = stockOrder; 
 	}
 	
+	/**
+	 * 
+	 * To get the stock's order of the player
+	 * @return stockOrder
+	 */
 	public Order getStockOrder() {
-		return stackOrder;
+		return stockOrder;
 	}
 	
+	/**
+	 * Clean the stock order
+	 */
 	private void clearStockOrder() {
-	        this.stackOrder = Order.STOP;
+	        this.stockOrder = Order.STOP;
 	    }
 	
+	/**
+	 * 
+	 */
 	@Override
     public IOrderPerformer getOrderPeformer() {
         return this;
     }
 	
+	/**
+	 * 
+	 */
 	@Override
 	public void orderPerform(Order userOrder) throws IOException {
 		this.setStockOrder(userOrder);
 	}
 	
-	
+	/**
+	 * This method Start the game
+	 */
 	@Override
 	public void start() throws InterruptedException {
+		/**
+		 * While the player is alive
+		 */
 		while (getModel().getMyPlayer().isAlive()) {
             Thread.sleep(speed);
             //System.out.println(TheMobile.getWin());
+           /**
+            * Verified the order 
+            */
             switch (this.getStockOrder()) {
             case UP:
+            	/**
+            	 * Launch moveUp in the model
+            	 */
             	getModel().getMyPlayer().move(1); 
                 viewFacade.refresh();
                 break;
             case DOWN:
+            	/**
+            	 * Launch moveDown in the model
+            	 */
                 getModel().getMyPlayer().move(2);
                 viewFacade.refresh();
                 break;
             case RIGHT:
+            	/**
+            	 * Launch moveRight in the model
+            	 */
             	getModel().getMyPlayer().move(4);
             	viewFacade.refresh();
                     break;
             case LEFT:
+            	/**
+            	 * Launch moveLeft in the model
+            	 */
                    getModel().getMyPlayer().move(3);
                    viewFacade.refresh();
                     break;
             case SHOOT:
+            	/**
+            	 * Launch shoot in the model
+            	 * When the player shoot, it looses his mana 
+            	 */
             	if (getModel().getMyPlayer().getMana() == true) { 
             		getModel().getMyPlayer().move(5);
             		getModel().getMyPlayer().setMana(false); 
@@ -99,18 +202,43 @@ import view.IViewFacade;
             case STOP:	
             	break;   
             }
+            
+            /**
+             * clear the stock order
+             */
             this.clearStockOrder();
-            getModel().getDemon1().move(1);
-            getModel().getDemon2().move(1);
-            getModel().getDemon3().move(1);
-            getModel().getDemon4().move(1);
+            
+            /**
+             * Launch the methods movement for the demons
+             */
+            getModel().getDemon1().move(0);
+            getModel().getDemon2().move(0);
+            getModel().getDemon3().move(0);
+            getModel().getDemon4().move(0);
             viewFacade.refresh();
                  }
 		/*if (TheMobile.getWin() == true) {
 			*viewFacade.displayMessage("You won with a score of  " + Score.getScore());
 		}*/
-		{viewFacade.displayMessage("Game Over ! Your score is " + Score.getScore());}
+		
+		/**
+		 * Show a message gameover with your score when the player isn't alive
+		 */
+		{
+			viewFacade.displayMessage("Game Over ! Your score is " + Score.getScore());}
     }
+
+	/**
+	 * 
+	 * @return TheMobile
+	 */
+	public IMobile getTheMobile() {
+		return TheMobile;
+	}
+
+	public void setTheMobile(IMobile theMobile) {
+		TheMobile = theMobile;
+	}
 
 		
 	}

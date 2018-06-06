@@ -1,15 +1,44 @@
 package model.element.mobile;
 
 import model.*;
+import model.element.Element;
+
+/**
+ * <h1>The Class MyPlayer.</h1>
+ * <p>This class is a generalized class of the player
+ * @author Team12
+ * @version final
+ * @see Element
+ * @see IMobile
+ */
 
 public class MyPlayer extends Mobile implements IMobile {
 	
+	/**
+	 *Set mana true
+	 */
 	private static boolean mana = true;
+	
+	/**
+	 * The map
+	 */
 	private IMap map;
+	
+	/**
+	 * The last position
+	 */
 	private int lastposition;
+	
+	/**
+	 * The spell
+	 */
 	public Fireball spell;
 	
-	
+	/**
+	 * 
+	 * @param position
+	 * @param map
+	 */
 	public MyPlayer(int position, IMap map) {
 		
 		super(position,map,Permeability.BLOCKING);
@@ -19,6 +48,10 @@ public class MyPlayer extends Mobile implements IMobile {
 		this.setObjet("Player");
 	}
 	
+	/**
+	 * The fireball is thrown a box behind the character
+	 * 
+	 */
 	public Fireball fireball() {
 		int direction = 0 ;
 		int order = getLastposition() - getPosition();
@@ -50,6 +83,9 @@ public class MyPlayer extends Mobile implements IMobile {
 		MyPlayer.mana = mana;
 	}
 	
+	/**
+	 * Player's order
+	 */
 	public void move(int move) {
 		switch(move) {
 		case 1:
