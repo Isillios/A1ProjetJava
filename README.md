@@ -3,8 +3,8 @@
 
 Game's code with test : https://github.com/Isillios/A1ProjetJava/tree/master/Lorann
 
-Java doc : https://github.com/Isillios/A1ProjetJava/tree/master/JavaDoc/Lorann/main/doc
-SureFire : https://github.com/Isillios/A1ProjetJava/tree/master/Lorann/target/site
+Java doc : https://github.com/Isillios/A1ProjetJava/tree/master/JavaDoc/Lorann/main/doc <br>
+SureFire : https://github.com/Isillios/A1ProjetJava/tree/master/Lorann/target/site <br>
 JXR : https://github.com/Isillios/A1ProjetJava/tree/master/Lorann/target/site/xref
 
 UML : https://github.com/Isillios/A1ProjetJava/tree/master/UML
